@@ -1,0 +1,10 @@
+{
+    "manifest_version": 2,
+  
+    "name": "suggestionExesion",
+    "description": "",
+    "version": "1.0",
+    "permissions": [
+
+    ]
+  }
