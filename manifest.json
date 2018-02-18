@@ -5,6 +5,23 @@
     "description": "",
     "version": "1.0",
     "permissions": [
-
-    ]
+        "activeTab",
+        "contextMenus"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["http://*/"],
+          "css": ["popup.css"],
+          "js": ["popup.js"],
+          "run_at": "document_end",
+          "all_frames": true
+        },
+        {
+            "matches": ["https://*/"],
+            "css": ["popup.css"],
+            "js": ["popup.js"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+      ]
   }
