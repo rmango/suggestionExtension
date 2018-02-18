@@ -1,22 +1,3 @@
-// \\$\\s?\\d+\\.?\\d{0,2}
-
-/*chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-    console.log(response.farewell);
-  });
-
-chrome.extension.getBackgroundPage().console.log("hi");
-/*document.addEventListener("DOMContentLoaded", function() {
-    console.log("im running");
-
-});
-
-chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.tabs.executeScript({
-      code: 'document.body.style.backgroundColor="red"'
-    });
-  });
-
-*/
 //className id
 var prevClassNm = "popup";
 
@@ -68,11 +49,6 @@ document.addEventListener("mousemove", function (e) {
     srcElement.classList.add(prevClassNm);
 
     prevDom = srcElement;
-    prevDom.onmouseover = function () {
-        //display popup
-    }
+
 }, false);
 
-/*document.addEventListener('onhover', function () {
-    alert("hovering");
-});*/
