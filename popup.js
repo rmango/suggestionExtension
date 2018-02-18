@@ -5,6 +5,7 @@ var prevDom = null;
 
 //mouse listener for move event
 document.addEventListener("mousemove", function (e) {
+    var scrolledPriceText;
     var scrolledPrice;
     //element that user is scrolling over
     var srcElement = e.srcElement;
@@ -19,7 +20,8 @@ document.addEventListener("mousemove", function (e) {
     console.log("text: " + scrolledText);
     var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
-        scrolledPrice = scrolledText.match(pattern)[0];
+        scrolledPriceText = scrolledText.match(pattern)[0];
+        scrolledPrice = parseFloat(scrolledPriceText.substring(1));
         console.log("price: " + scrolledPrice);
 
         //circle through children to see if span has already been added
