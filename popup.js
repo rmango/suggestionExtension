@@ -22,6 +22,12 @@ var randObj = [
         "price":99.99,
         "link": "https://shipsnowyo.com/collections/frontpage/products/box-of-real-snow-12-lbs-shipped-overnight?variant=32138949454",
         "imgLink":"https://cdn.shopify.com/s/files/1/1107/4628/products/10lbs-in-sand1_grande.jpg?v=1513463248"
+    },
+    {
+        "name":"Cans of Air",
+        "price": 9.99,
+        "link":"https://www.etsy.com/listing/99291100/original-canned-air-from-new-york-city-a?gpla=1&gao=1&utm_campaign=shopping_us_cooperativ_sfc_osa&utm_medium=cpc&utm_source=google&utm_custom1=0&utm_content=6020270&gclid=Cj0KCQiA5aTUBRC2ARIsAPoPJk-8Bx7KpwXXZDZsFhqWTK39kHHN1-5R0icl_fZkohLYi5P5h39CAnwaAthJEALw_wcB",
+        "imgLink":"https://img.etsystatic.com/il/348129/335003211/il_570xN.335003211.jpg"
     }
 ]
 
