@@ -17,7 +17,7 @@ document.addEventListener("mousemove", function (e) {
         scrolledText = srcElement.childNodes[0].nodeValue;
     }
     console.log("text: " + scrolledText);
-    var pattern = new RegExp("\\$\\s?\\d+\\.?\\d{0,2}?");
+    var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
         scrolledPrice = scrolledText.match(pattern);
         console.log("price: " + scrolledPrice);
