@@ -18,13 +18,14 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 */
 //className id
-var prevClassNm = "";
+var prevClassNm = "crx_mouse_visited";
 
 var prevDom = null;
 
 //mouse listener for move event
 document.addEventListener("mousemove", function(e) {
-    console.log("hi");
+    var scrolledPrice;
+    //element that user is scrolling over
     var srcElement = e.srcElement;
     
     if(prevDom != null) {
@@ -35,6 +36,8 @@ document.addEventListener("mousemove", function(e) {
     var pattern = new RegExp("\\$\\s?\\d+\\.?\\d{0,2}?");
     if(scrolledText.match(pattern)) {
         console.log("found a price");
+        scrolledPrice = scrolledText.match(pattern);
+        console.log("price: " + scrolledPrice);
     }
 
     //console.log("class list" + srcElement.classList);
