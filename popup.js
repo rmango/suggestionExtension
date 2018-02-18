@@ -76,6 +76,7 @@ document.addEventListener("mousemove", function (e) {
             image.setAttribute('alt', name);
             image.setAttribute('height', '60px');
             image.setAttribute('width', '60px');
+            popupSpan.appendChild(document.createElement("br"));
             popupSpan.appendChild(image);
 
             srcElement.appendChild(popupSpan);
