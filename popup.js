@@ -90,8 +90,8 @@ document.addEventListener("mousemove", function (e) {
             popupSpan.classList.toggle("show");
 
             srcElement.onclick = function () {
-                console.log(randObj[rand].link);
-                var win = window.open(randObj[rand].link);
+                console.log(link);
+                var win = window.open(link);
             }
         }
         srcElement.classList.add(prevClassNm);
