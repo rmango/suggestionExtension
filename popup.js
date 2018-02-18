@@ -44,14 +44,13 @@ document.addEventListener("mousemove", function (e) {
         if (srcElement.hasChildNodes) {
             console.log(srcElement.childNodes);
             for (var i = 0; i < srcElement.childNodes.length; i++) {
-                console.log(srcElement.childNodes[i].classList);
-                if (srcElement.childNodes[i].classList.contains("popup")) {
+                //if(srcElement.childNodes[i].classList.length > 0 && srcElement.childNodes[i].className.split(' ').includes("popup")) {
+                if (srcElement.childNodes[i].classList != null && srcElement.childNodes[i].classList.contains("popup")) {
                     alreadyAdded = true;
-                    i = srcElement.childNodes.length;
                 }
             }
         }
-
+        console.log("alreadyAdded: " + alreadyAdded);
         //show popup
         if (!alreadyAdded) {
             var popupSpan = document.createElement("span");
