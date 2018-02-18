@@ -8,6 +8,12 @@ var randObj = [
     "price": 16.95,
     "link": "https://www.shopdisney.com/porg-plush-small-9-star-wars-the-last-jedi-1443109?CMP=KNC-DSSGoogle&efc=179006&s_kwcid=AL!5079!3!95242407264!!!g!367459873804!&ef_id=WR8rqQAAAB5RD2Ec:20180218071135:s",
     "imgLink": "https://i.ebayimg.com/images/g/NwoAAOSwHm5ZuCu-/s-l300.jpg"
+    },
+    {"name":"Pool Noodles",
+    "price": 6.37,
+    "link":"https://www.amazon.com/Noodle-Style-Color-Exact-Dimensions/dp/B0029XD0CG",
+    "imgLink":"https://images-na.ssl-images-amazon.com/images/I/31p91gpP20L.jpg"
+
     }
 ]
 
@@ -61,11 +67,11 @@ document.addEventListener("mousemove", function (e) {
             var price = randObj[rand].price;
             var link = randObj[rand].link;
             var imageLink = randObj[rand].imgLink;
-            var numRObjs = price/scrolledPrice; //divided by parsed price we are hovering over (how do i find?)
+            var numRObjs = scrolledPrice/price; //divided by parsed price we are hovering over (how do i find?)
             
 
             var popupSpan = document.createElement("span");
-            popupSpan.innerHTML = "Buy " + numRObjs + " " + name;
+            popupSpan.innerHTML = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
             popupSpan.classList += "popuptext";
             popupSpan.id = "myPopup";
 
