@@ -12,11 +12,13 @@ document.addEventListener("mousemove", function (e) {
     if (prevDom != null) {
         prevDom.classList.remove(prevClassNm);
     }
-    var scrolledText = srcElement.childNodes[0].nodeValue;
+    var scrolledText = null;
+    if(srcElement.childNodes[0] !== null) {
+        scrolledText = srcElement.childNodes[0].nodeValue;
+    }
     console.log("text: " + scrolledText);
     var pattern = new RegExp("\\$\\s?\\d+\\.?\\d{0,2}?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
-        console.log("found a price");
         scrolledPrice = scrolledText.match(pattern);
         console.log("price: " + scrolledPrice);
 
