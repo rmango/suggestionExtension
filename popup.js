@@ -62,7 +62,7 @@ document.addEventListener("mousemove", function (e) {
         console.log("alreadyAdded: " + alreadyAdded);
         //show popup
         if (!alreadyAdded) {
-            var rand = Math.floor((Math.random() * randObj.length) + 1);
+            var rand = Math.floor((Math.random() * randObj.length));
             var name = randObj[rand].name;
             var price = randObj[rand].price;
             var link = randObj[rand].link;
