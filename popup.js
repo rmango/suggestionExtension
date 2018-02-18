@@ -16,6 +16,12 @@ var randObj = [
         "price": 6.37,
         "link": "https://www.amazon.com/Noodle-Style-Color-Exact-Dimensions/dp/B0029XD0CG",
         "imgLink": "https://images-na.ssl-images-amazon.com/images/I/31p91gpP20L.jpg"
+    },
+    {
+        "name": "10 lb shipments of snow",
+        "price":99.99,
+        "link": "https://shipsnowyo.com/collections/frontpage/products/box-of-real-snow-12-lbs-shipped-overnight?variant=32138949454",
+        "imgLink":"https://cdn.shopify.com/s/files/1/1107/4628/products/10lbs-in-sand1_grande.jpg?v=1513463248"
     }
 ]
 
