@@ -71,7 +71,7 @@ document.addEventListener("mousemove", function (e) {
             
 
             var popupSpan = document.createElement("span");
-            popupSpan.innerHTML = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
+            popupSpan.textContent = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
             popupSpan.classList += "popuptext";
             popupSpan.id = "myPopup";
 
@@ -85,10 +85,11 @@ document.addEventListener("mousemove", function (e) {
             srcElement.appendChild(popupSpan);
             popupSpan.classList.toggle("show");
         }
+        srcElement.classList.add(prevClassNm);
     }
 
     //console.log("class list" + srcElement.classList);
-    srcElement.classList.add(prevClassNm);
+    
 
     prevDom = srcElement;
 
