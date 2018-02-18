@@ -19,7 +19,7 @@ document.addEventListener("mousemove", function (e) {
     console.log("text: " + scrolledText);
     var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
-        scrolledPrice = scrolledText.match(pattern);
+        scrolledPrice = scrolledText.match(pattern)[0];
         console.log("price: " + scrolledPrice);
 
         //circle through children to see if span has already been added
