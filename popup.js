@@ -43,9 +43,10 @@ document.addEventListener("mousemove", function (e) {
         var alreadyAdded = false;
         if (srcElement.hasChildNodes) {
             console.log(srcElement.childNodes);
+            //check to make sure hasn't been added to children
             for (var i = 0; i < srcElement.childNodes.length; i++) {
                 //if(srcElement.childNodes[i].classList.length > 0 && srcElement.childNodes[i].className.split(' ').includes("popup")) {
-                if (srcElement.childNodes[i].classList != null && srcElement.childNodes[i].classList.contains("popup")) {
+                if (srcElement.childNodes[i].classList != null && srcElement.childNodes[i].classList.contains("popuptext")) {
                     alreadyAdded = true;
                 }
             }
@@ -54,7 +55,7 @@ document.addEventListener("mousemove", function (e) {
         //show popup
         if (!alreadyAdded) {
             var popupSpan = document.createElement("span");
-            popupSpan.innerHTML = "This is the price: " + scrolledPrice;
+            popupSpan.innerHTML = "This is a price";
             popupSpan.classList += "popuptext";
             popupSpan.id = "myPopup";
             srcElement.appendChild(popupSpan);
