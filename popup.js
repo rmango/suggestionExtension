@@ -40,9 +40,8 @@ document.addEventListener("mousemove", function (e) {
             popupSpan.classList += "popuptext";
             popupSpan.id = "myPopup";
             srcElement.appendChild(popupSpan);
+            popupSpan.classList.toggle("show");
         }
-
-
     }
 
     //console.log("class list" + srcElement.classList);
