@@ -30,7 +30,12 @@ document.addEventListener("mousemove", function(e) {
     if(prevDom != null) {
         prevDom.classList.remove(prevClassNm);
     }
-    console.log("text: " + srcElement.childNodes[0].nodeValue);
+    var scrolledText = srcElement.childNodes[0].nodeValue;
+    console.log("text: " + scrolledText);
+    var pattern = new RegExp("\\$\\s?\\d+\\.?\\d{0,2}?");
+    if(scrolledText.match(pattern)) {
+        console.log("found a price");
+    }
 
     //console.log("class list" + srcElement.classList);
     srcElement.classList.add(prevClassNm);
