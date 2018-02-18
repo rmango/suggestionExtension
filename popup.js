@@ -13,10 +13,8 @@ var randObj = [
     "price": 6.37,
     "link":"https://www.amazon.com/Noodle-Style-Color-Exact-Dimensions/dp/B0029XD0CG",
     "imgLink":"https://images-na.ssl-images-amazon.com/images/I/31p91gpP20L.jpg"
-
     }
 ]
-
 
 //className id
 var prevClassNm = "popup";
@@ -28,6 +26,12 @@ console.log(randObj[0].name);
 
 //mouse listener for move event
 document.addEventListener("mousemove", function (e) {
+    if(document.getElementById("container") != null) {
+        document.getElementById("container").remove();
+    }
+    if(prevDom != null) {
+        prevDom.setAttribute("visible", "hidden");
+    }
     var scrolledPriceText;
     var scrolledPrice;
     //element that user is scrolling over
@@ -67,11 +71,10 @@ document.addEventListener("mousemove", function (e) {
             var price = randObj[rand].price;
             var link = randObj[rand].link;
             var imageLink = randObj[rand].imgLink;
-            var numRObjs = scrolledPrice/price; //divided by parsed price we are hovering over (how do i find?)
+            var numRObjs = scrolledPrice/price;
             
-
             var popupSpan = document.createElement("span");
-            popupSpan.textContent = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
+            popupSpan.innerHTML = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
             popupSpan.classList += "popuptext";
             popupSpan.id = "myPopup";
 
@@ -83,15 +86,14 @@ document.addEventListener("mousemove", function (e) {
             popupSpan.appendChild(image);
 
             srcElement.appendChild(popupSpan);
+            popupSpan.setAttribute("id", "container");
             popupSpan.classList.toggle("show");
         }
         srcElement.classList.add(prevClassNm);
+        prevDom = srcElement;
+
     }
-
-    //console.log("class list" + srcElement.classList);
-    
-
-    prevDom = srcElement;
+    //srcElement.setAttribute("visible", "hidden");
 
 }, false);
 
