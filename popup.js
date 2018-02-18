@@ -83,7 +83,8 @@ document.addEventListener("mousemove", function (e) {
             popupSpan.classList.toggle("show");
 
             srcElement.onclick = function () {
-                console.log("clicked!");
+                console.log(randObj[rand].link);
+                var win = window.open(randObj[rand].link);
             }
         }
         srcElement.classList.add(prevClassNm);
