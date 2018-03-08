@@ -3,31 +3,31 @@ var randObj = [
         "name": "Spoons",
         "price": 1.40,
         "link": "https://www.walmart.com/ip/0010-03-12-Piece-Lisa-Dinner-Spoon-Set-18-0-Stainless-Steel-Lisa-pattern-12-piece-dinner-spoon-set-offers-elegant-table-setting-a-Winco-Ship-US/723070275",
-        "imgLink": "http://weknowyourdreamz.com/images/spoon/spoon-06.jpg"
+        "imgLink": chrome.extension.getURL("images/spoon.jpeg")
     },
     {
         "name": "Porg Plushies",
         "price": 16.95,
         "link": "https://www.shopdisney.com/porg-plush-small-9-star-wars-the-last-jedi-1443109?CMP=KNC-DSSGoogle&efc=179006&s_kwcid=AL!5079!3!95242407264!!!g!367459873804!&ef_id=WR8rqQAAAB5RD2Ec:20180218071135:s",
-        "imgLink": "https://i.ebayimg.com/images/g/NwoAAOSwHm5ZuCu-/s-l300.jpg"
+         "imgLink": chrome.extension.getURL("images/porgPlushie.jpeg")
     },
     {
         "name": "Pool Noodles",
         "price": 6.37,
         "link": "https://www.amazon.com/Noodle-Style-Color-Exact-Dimensions/dp/B0029XD0CG",
-        "imgLink": "https://images-na.ssl-images-amazon.com/images/I/31p91gpP20L.jpg"
+        "imgLink": chrome.extension.getURL("images/poolNoodles.jpg")
     },
     {
         "name": "10 lb shipments of snow",
         "price":99.99,
         "link": "https://shipsnowyo.com/collections/frontpage/products/box-of-real-snow-12-lbs-shipped-overnight?variant=32138949454",
-        "imgLink":"https://cdn.shopify.com/s/files/1/1107/4628/products/10lbs-in-sand1_grande.jpg?v=1513463248"
+        "imgLink": chrome.extension.getURL("images/snow.jpg")
     },
     {
         "name":"Cans of Air",
         "price": 9.99,
         "link":"https://www.etsy.com/listing/99291100/original-canned-air-from-new-york-city-a?gpla=1&gao=1&utm_campaign=shopping_us_cooperativ_sfc_osa&utm_medium=cpc&utm_source=google&utm_custom1=0&utm_content=6020270&gclid=Cj0KCQiA5aTUBRC2ARIsAPoPJk-8Bx7KpwXXZDZsFhqWTK39kHHN1-5R0icl_fZkohLYi5P5h39CAnwaAthJEALw_wcB",
-        "imgLink":"https://img.etsystatic.com/il/348129/335003211/il_570xN.335003211.jpg"
+        "imgLink":chrome.extension.getURL("images/cannedAir.jpg")
     }
 ]
 
@@ -56,7 +56,7 @@ document.addEventListener("mousemove", function (e) {
     var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
         scrolledPriceText = scrolledText.match(pattern)[0];
-        scrolledPrice = parseFloat(scrolledPriceText.substring(1));
+        scrolledPrice = parseFloat(scrolledPriceText.substring(1).trim());
 
         //circle through children to see if span has already been added
         var alreadyAdded = false;
@@ -85,6 +85,7 @@ document.addEventListener("mousemove", function (e) {
 
             var image = document.createElement("img");
             image.setAttribute('src', imageLink);
+            //image.setAttribute('src', chrome.extension.getURL("images/spoon.jpeg"));
             image.setAttribute('alt', name);
             image.setAttribute('height', '60px');
             image.setAttribute('width', '60px');

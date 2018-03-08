@@ -23,5 +23,12 @@
             "run_at": "document_end",
             "all_frames": true
         }
+      ],
+      "web_accessible_resources": [
+        "images/spoon.jpeg",
+        "images/poolNoodles.jpg",
+        "images/cannedAir.jpg",
+        "images/porgPlushie.jpeg",
+        "images/snow.jpg"
       ]
   }
