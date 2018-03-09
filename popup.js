@@ -9,7 +9,7 @@ var randObj = [
         "name": "Porg Plushies",
         "price": 16.95,
         "link": "https://www.shopdisney.com/porg-plush-small-9-star-wars-the-last-jedi-1443109?CMP=KNC-DSSGoogle&efc=179006&s_kwcid=AL!5079!3!95242407264!!!g!367459873804!&ef_id=WR8rqQAAAB5RD2Ec:20180218071135:s",
-         "imgLink": chrome.extension.getURL("images/porgPlushie.jpeg")
+        "imgLink": chrome.extension.getURL("images/porgPlushie.jpeg")
     },
     {
         "name": "Pool Noodles",
@@ -19,15 +19,15 @@ var randObj = [
     },
     {
         "name": "10 lb shipments of snow",
-        "price":99.99,
+        "price": 99.99,
         "link": "https://shipsnowyo.com/collections/frontpage/products/box-of-real-snow-12-lbs-shipped-overnight?variant=32138949454",
         "imgLink": chrome.extension.getURL("images/snow.jpg")
     },
     {
-        "name":"Cans of Air",
+        "name": "Cans of Air",
         "price": 9.99,
-        "link":"https://www.etsy.com/listing/99291100/original-canned-air-from-new-york-city-a?gpla=1&gao=1&utm_campaign=shopping_us_cooperativ_sfc_osa&utm_medium=cpc&utm_source=google&utm_custom1=0&utm_content=6020270&gclid=Cj0KCQiA5aTUBRC2ARIsAPoPJk-8Bx7KpwXXZDZsFhqWTK39kHHN1-5R0icl_fZkohLYi5P5h39CAnwaAthJEALw_wcB",
-        "imgLink":chrome.extension.getURL("images/cannedAir.jpg")
+        "link": "https://www.etsy.com/listing/99291100/original-canned-air-from-new-york-city-a?gpla=1&gao=1&utm_campaign=shopping_us_cooperativ_sfc_osa&utm_medium=cpc&utm_source=google&utm_custom1=0&utm_content=6020270&gclid=Cj0KCQiA5aTUBRC2ARIsAPoPJk-8Bx7KpwXXZDZsFhqWTK39kHHN1-5R0icl_fZkohLYi5P5h39CAnwaAthJEALw_wcB",
+        "imgLink": chrome.extension.getURL("images/cannedAir.jpg")
     }
 ]
 
@@ -38,8 +38,8 @@ var prevDom = null;
 //mouse listener for move event
 document.addEventListener("mousemove", function (e) {
     //removes the old popup span from the dom
-    if (document.getElementById("container") != null) {
-        document.getElementById("container").remove();
+    if (document.getElementById("popupContainer") != null) {
+        document.getElementById("popupContainer").remove();
     }
     //element that user is scrolling over
     var srcElement = e.srcElement;
@@ -50,8 +50,9 @@ document.addEventListener("mousemove", function (e) {
         prevDom.classList.remove(prevClassNm);
     }
     var scrolledText = null;
-    if (srcElement.childNodes[0] !== null) {
-        scrolledText = srcElement.childNodes[0].nodeValue;
+    console.log(srcElement.childNodes[0]);
+    if (srcElement.childNodes[0] !== null && srcElement.childNodes[0].nodeName !== "IMG") {
+        scrolledText = srcElement.childNodes[0].textContent;
     }
     var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
     if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
@@ -93,7 +94,7 @@ document.addEventListener("mousemove", function (e) {
             popupSpan.appendChild(image);
 
             srcElement.appendChild(popupSpan);
-            popupSpan.setAttribute("id", "container");
+            popupSpan.setAttribute("id", "popupContainer");
             popupSpan.classList.toggle("show");
 
             srcElement.onclick = function () {
@@ -103,7 +104,6 @@ document.addEventListener("mousemove", function (e) {
         }
         srcElement.classList.add(prevClassNm);
         prevDom = srcElement;
-
     }
 }, false);
 
