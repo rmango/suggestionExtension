@@ -45,63 +45,65 @@ document.addEventListener("mousemove", function (e) {
     var srcElement = e.srcElement;
     var scrolledPriceText;
     var scrolledPrice;
-    //remove old class name
+    //remove old class name from previous element
     if (prevDom != null) {
         prevDom.classList.remove(prevClassNm);
     }
     var scrolledText = null;
-    if (srcElement.childNodes[0] != undefined && srcElement.childNodes[0] !== null &&  srcElement.childNodes[0].nodeName !== "IMG") {
-        scrolledText = srcElement.childNodes[0].textContent;
-    }
-    var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
-    if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
-        scrolledPriceText = scrolledText.match(pattern)[0];
-        scrolledPrice = parseFloat(scrolledPriceText.substring(1).trim());
+    if (srcElement.childNodes[0] != undefined && srcElement.childNodes[0] !== null && srcElement.childNodes[0].nodeName !== "IMG") {
+        scrolledText = srcElement.childNodes[0].nodeValue;
+        //}
+        var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
+        if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
+            console.log("found a match! " + scrolledText.match(pattern)[0]+"/t" + scrolledText);
+            scrolledPriceText = scrolledText.match(pattern)[0];
+            scrolledPrice = parseFloat(scrolledPriceText.substring(1).trim());
 
-        //circle through children to see if span has already been added
-        var alreadyAdded = false;
-        if (srcElement.hasChildNodes) {
-            //check to make sure hasn't been added to children
-            for (var i = 0; i < srcElement.childNodes.length; i++) {
-                //if(srcElement.childNodes[i].classList.length > 0 && srcElement.childNodes[i].className.split(' ').includes("popup")) {
-                if (srcElement.childNodes[i].classList != null && srcElement.childNodes[i].classList.contains("popuptext")) {
-                    alreadyAdded = true;
+            //circle through children to see if span has already been added
+            var alreadyAdded = false;
+            if (srcElement.hasChildNodes) {
+                //check to make sure hasn't been added to children
+                for (var i = 0; i < srcElement.childNodes.length; i++) {
+                    //if(srcElement.childNodes[i].classList.length > 0 && srcElement.childNodes[i].className.split(' ').includes("popup")) {
+                    if (srcElement.childNodes[i].classList != null && srcElement.childNodes[i].classList.contains("popuptext")) {
+                        alreadyAdded = true;
+                    }
                 }
             }
-        }
-        //show popup
-        if (!alreadyAdded) {
-            var rand = Math.floor((Math.random() * randObj.length));
-            var name = randObj[rand].name;
-            var price = randObj[rand].price;
-            var link = randObj[rand].link;
-            var imageLink = randObj[rand].imgLink;
-            var numRObjs = scrolledPrice / price;
+            //show popup
+            if (!alreadyAdded) {
+                var rand = Math.floor((Math.random() * randObj.length));
+                var name = randObj[rand].name;
+                var price = randObj[rand].price;
+                var link = randObj[rand].link;
+                var imageLink = randObj[rand].imgLink;
+                var numRObjs = scrolledPrice / price;
 
-            var popupSpan = document.createElement("span");
-            popupSpan.innerHTML = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
-            popupSpan.classList += "popuptext";
-            popupSpan.id = "myPopup";
+                var popupSpan = document.createElement("span");
+                popupSpan.innerHTML = "Buy " + Math.round(numRObjs * 100) / 100 + " " + name;
+                popupSpan.classList += "popuptext";
+                popupSpan.id = "myPopup";
 
-            var image = document.createElement("img");
-            image.setAttribute('src', imageLink);
-            //image.setAttribute('src', chrome.extension.getURL("images/spoon.jpeg"));
-            image.setAttribute('alt', name);
-            image.setAttribute('height', '60px');
-            image.setAttribute('width', '60px');
-            popupSpan.appendChild(document.createElement("br"));
-            popupSpan.appendChild(image);
+                var image = document.createElement("img");
+                image.setAttribute('src', imageLink);
+                //image.setAttribute('src', chrome.extension.getURL("images/spoon.jpeg"));
+                image.setAttribute('alt', name);
+                image.setAttribute('height', '60px');
+                image.setAttribute('width', '60px');
+                popupSpan.appendChild(document.createElement("br"));
+                popupSpan.appendChild(image);
 
-            srcElement.appendChild(popupSpan);
-            popupSpan.setAttribute("id", "popupContainer");
-            popupSpan.classList.toggle("show");
+                srcElement.appendChild(popupSpan);
+                popupSpan.setAttribute("id", "popupContainer");
+                popupSpan.classList.toggle("show");
 
-            srcElement.onclick = function () {
-                console.log(link);
-                var win = window.open(link);
+                srcElement.onclick = function () {
+                    console.log(link);
+                    var win = window.open(link);
+                }
             }
+            srcElement.classList.add(prevClassNm);
         }
-        srcElement.classList.add(prevClassNm);
         prevDom = srcElement;
     }
 }, false);
