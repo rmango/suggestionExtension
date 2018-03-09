@@ -50,8 +50,7 @@ document.addEventListener("mousemove", function (e) {
         prevDom.classList.remove(prevClassNm);
     }
     var scrolledText = null;
-    console.log(srcElement.childNodes[0]);
-    if (srcElement.childNodes[0] !== null && srcElement.childNodes[0].nodeName !== "IMG") {
+    if (srcElement.childNodes[0] != undefined && srcElement.childNodes[0] !== null &&  srcElement.childNodes[0].nodeName !== "IMG") {
         scrolledText = srcElement.childNodes[0].textContent;
     }
     var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
