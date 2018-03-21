@@ -55,7 +55,6 @@ document.addEventListener("mousemove", function (e) {
         //}
         var pattern = new RegExp("\\$\\s?\\d+(\\.\\d{2})?");
         if (scrolledText != null && scrolledText.trim != "" && scrolledText.match(pattern)) {
-            console.log("found a match! " + scrolledText.match(pattern)[0]+"/t" + scrolledText);
             scrolledPriceText = scrolledText.match(pattern)[0];
             scrolledPrice = parseFloat(scrolledPriceText.substring(1).trim());
 
@@ -98,7 +97,6 @@ document.addEventListener("mousemove", function (e) {
                 popupSpan.classList.toggle("show");
 
                 srcElement.onclick = function () {
-                    console.log(link);
                     var win = window.open(link);
                 }
             }
