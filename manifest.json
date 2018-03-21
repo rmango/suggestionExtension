@@ -30,5 +30,6 @@
         "images/cannedAir.jpg",
         "images/porgPlushie.jpeg",
         "images/snow.jpg"
-      ]
+      ],
+      "icons": {"128":"spoonIcon128.png"}
   }
